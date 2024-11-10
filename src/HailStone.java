@@ -52,7 +52,7 @@ public class HailStone
 		}
 		if(inputtedValue>1)
 		{
-			System.out.print("\t" + inputtedValue);
+			System.out.printf("\t%,d", inputtedValue);
 			executedTimes++;
 			do
 			{
