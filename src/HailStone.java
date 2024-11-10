@@ -46,17 +46,24 @@ public class HailStone
 	public void findIt()
 	{
 		input();
-		System.out.print("\t" + inputtedValue);
-		executedTimes++;
-		if(inputtedValue > highestValue)
+		if(inputtedValue>=1)
 		{
-			highestValue = inputtedValue;
+			System.out.print("\t" + inputtedValue);
+			executedTimes++;
+			if(inputtedValue > highestValue)
+			{
+				highestValue = inputtedValue;
+			}
+			do
+			{
+				calculate();
+				print();
+			}while(inputtedValue > 1);
 		}
-		do
+		else 
 		{
-			calculate();
-			print();
-		}while(inputtedValue > 1);
+			System.out.println("Enter a value within the range, please!");
+		}
 	}
 	public void input()
 	{
@@ -80,7 +87,7 @@ public class HailStone
 		{
 			print();
 		}
-		
+
 		if(inputtedValue > highestValue)
 		{
 			highestValue = inputtedValue;
