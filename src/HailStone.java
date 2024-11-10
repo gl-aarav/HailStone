@@ -35,7 +35,7 @@ public class HailStone
 		inputtedValue = 0;
 		printInOneLine = 0;
 		executedTimes = 0;
-		highestValue = 0;
+		highestValue = -1;
 	}
 	public static void main (String[] args)
 	{
@@ -46,23 +46,29 @@ public class HailStone
 	public void findIt()
 	{
 		input();
-		if(inputtedValue>=1)
+		if(inputtedValue > highestValue)
+		{
+			highestValue = inputtedValue;
+		}
+		if(inputtedValue>1)
 		{
 			System.out.print("\t" + inputtedValue);
 			executedTimes++;
-			if(inputtedValue > highestValue)
-			{
-				highestValue = inputtedValue;
-			}
 			do
 			{
 				calculate();
 				print();
 			}while(inputtedValue > 1);
 		}
-		else 
+
+		else if (inputtedValue == -1)
 		{
-			System.out.println("Enter a value within the range, please!");
+			print();
+		}
+		else
+		{
+			printInOneLine=-100;
+			print();
 		}
 	}
 	public void input()
@@ -95,27 +101,40 @@ public class HailStone
 	}
 	public void print()
 	{
+
 		if (printInOneLine <= 7 && inputtedValue > 1) 
 		{
 			System.out.printf("\t%,d", inputtedValue);
 			printInOneLine++;
 			executedTimes++;
 		}
-		else if (printInOneLine > 7 || inputtedValue < 1)
+		else if (printInOneLine > 7 && inputtedValue > 1)
 		{
 			System.out.printf("\t%,d\n\n", inputtedValue);
 			printInOneLine = 0;
 			executedTimes++;
 		}
+		else if (inputtedValue == 1 && printInOneLine > 7)
+		{
+			System.out.printf("\t%,d\n\n", inputtedValue);
+			executedTimes++;
+			System.out.printf("The loop executed %,d times.\n", executedTimes);
+			System.out.printf("The highest value was: %,d.\n\n\n\n",highestValue);
+		}
+		else if (inputtedValue == 1 && printInOneLine <= 7)
+		{
+			System.out.printf("\t%,d\n\n\n", inputtedValue);
+			executedTimes++;
+			System.out.printf("The loop executed %,d times.\n", executedTimes);
+			System.out.printf("The highest value was: %,d.\n\n\n\n",highestValue);
+		}
+		else if (inputtedValue == -1)
+		{
+			System.out.println("Thank you for playing Hailstone.\n\n\n");
+		}
 		else
 		{
-			System.out.printf("\t\n\n%,d\n\n\n\n", inputtedValue);
-			executedTimes++;
-		}
-		if(inputtedValue == 1)
-		{
-			System.out.printf("The loop executed %,d times.\n", executedTimes);
-			System.out.printf("The highest value was: %,d\n\n\n\n",highestValue);
+			System.out.println("Enter a value within the range, please!");
 		}
 	}
 }
