@@ -29,12 +29,13 @@ public class HailStone
 	private int inputtedValue;
 	private int printInOneLine;
 	private int executedTimes;
+	private int highestValue;
 	public HailStone()
 	{
 		inputtedValue = 0;
 		printInOneLine = 0;
 		executedTimes = 0;
-
+		highestValue = 0;
 	}
 	public static void main (String[] args)
 	{
@@ -47,6 +48,10 @@ public class HailStone
 		input();
 		System.out.print("\t" + inputtedValue);
 		executedTimes++;
+		if(inputtedValue > highestValue)
+		{
+			highestValue = inputtedValue;
+		}
 		do
 		{
 			calculate();
@@ -75,29 +80,35 @@ public class HailStone
 		{
 			print();
 		}
+		
+		if(inputtedValue > highestValue)
+		{
+			highestValue = inputtedValue;
+		}
 	}
 	public void print()
 	{
 		if (printInOneLine <= 7 && inputtedValue > 1) 
 		{
-			System.out.print("\t" + inputtedValue);
+			System.out.printf("\t%,d", inputtedValue);
 			printInOneLine++;
 			executedTimes++;
 		}
 		else if (printInOneLine > 7 || inputtedValue < 1)
 		{
-			System.out.println("\t" + inputtedValue + "\n\n");
+			System.out.printf("\t%,d\n\n", inputtedValue);
 			printInOneLine = 0;
 			executedTimes++;
 		}
 		else
 		{
-			System.out.println("\t" + inputtedValue + "\n\n\n");
+			System.out.printf("\t\n\n%,d\n\n\n\n", inputtedValue);
 			executedTimes++;
 		}
 		if(inputtedValue == 1)
 		{
-			System.out.println("The loop executed " + executedTimes + " times.\n\n\n");
+			System.out.printf("The loop executed %,d times.\n", executedTimes);
+			System.out.printf("The highest value was: %,d\n\n\n\n",highestValue);
 		}
 	}
 }
