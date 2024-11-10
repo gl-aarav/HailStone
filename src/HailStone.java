@@ -26,12 +26,15 @@
 import java.util.Scanner;
 public class HailStone
 {
-	private int InputtedValue;
+	private int inputtedValue;
 	private int printInOneLine;
+	private int executedTimes;
 	public HailStone()
 	{
-		InputtedValue = 0;
+		inputtedValue = 0;
 		printInOneLine = 0;
+		executedTimes = 0;
+
 	}
 	public static void main (String[] args)
 	{
@@ -42,46 +45,59 @@ public class HailStone
 	public void findIt()
 	{
 		input();
+		System.out.print("\t" + inputtedValue);
+		executedTimes++;
 		do
 		{
 			calculate();
 			print();
-		}while(InputtedValue > 1);
+		}while(inputtedValue > 1);
 	}
 	public void input()
 	{
 		Scanner in = new Scanner(System.in);
 		System.out.print("\n\n\nEnter a positive value (1 - 10000). To quit, enter -1:\t");
-		InputtedValue = in.nextInt();
-		System.out.println("\n\n\nHere is the Sequence\n\n");
+		inputtedValue = in.nextInt();
+		System.out.print("\n\n");
 		in.close();
 	}
 	public void calculate()
 	{
-		if(InputtedValue % 2 == 1)
+		if(inputtedValue % 2 == 1)
 		{
-			InputtedValue = 3 * InputtedValue + 1;
+			inputtedValue = 3 * inputtedValue + 1;
 		}
-		else if (InputtedValue % 2 == 0)
+		else if (inputtedValue % 2 == 0)
 		{
-			InputtedValue = InputtedValue / 2;
+			inputtedValue = inputtedValue / 2;
 		}
-		else if (InputtedValue == -1)
+		else if (inputtedValue == -1)
 		{
 			print();
 		}
 	}
 	public void print()
 	{
-		if (printInOneLine<=10) 
+		if (printInOneLine <= 7 && inputtedValue > 1) 
 		{
-			System.out.print(InputtedValue + " -> ");
+			System.out.print("\t" + inputtedValue);
 			printInOneLine++;
+			executedTimes++;
 		}
-		else if (printInOneLine>10 || )
+		else if (printInOneLine > 7 || inputtedValue < 1)
 		{
-			System.out.println(InputtedValue + "\n\n");
+			System.out.println("\t" + inputtedValue + "\n\n");
 			printInOneLine = 0;
+			executedTimes++;
+		}
+		else
+		{
+			System.out.println("\t" + inputtedValue + "\n\n\n");
+			executedTimes++;
+		}
+		if(inputtedValue == 1)
+		{
+			System.out.println("The loop executed " + executedTimes + " times.\n\n\n");
 		}
 	}
 }
