@@ -33,9 +33,9 @@ public class HailStone
 	public HailStone()
 	{
 		inputtedValue = 0;
-		printInOneLine = 0;
+		printInOneLine = 1;
 		executedTimes = 0;
-		highestValue = -1;
+		highestValue = 0;
 	}
 	public static void main (String[] args)
 	{
@@ -54,11 +54,11 @@ public class HailStone
 		{
 			System.out.printf("\t%,d", inputtedValue);
 			executedTimes++;
-			do
+			while(inputtedValue > 1)
 			{
 				calculate();
 				print();
-			}while(inputtedValue > 1);
+			}
 		}
 
 		else if (inputtedValue == -1)
@@ -102,13 +102,13 @@ public class HailStone
 	public void print()
 	{
 
-		if (printInOneLine <= 7 && inputtedValue > 1) 
+		if (printInOneLine < 8 && inputtedValue > 1) 
 		{
 			System.out.printf("\t%,d", inputtedValue);
 			printInOneLine++;
 			executedTimes++;
 		}
-		else if (printInOneLine > 7 && inputtedValue > 1)
+		else if (printInOneLine >= 8 && inputtedValue > 1)
 		{
 			System.out.printf("\t%,d\n\n", inputtedValue);
 			printInOneLine = 0;
