@@ -22,7 +22,7 @@
  * - The program will stop if a negative value or zero is entered as well.
  */
 
-import java.util.Scanner;
+import java.util.Scanner; // Import the Scanner class
 
 public class HailStone
 {
