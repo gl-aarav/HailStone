@@ -20,6 +20,8 @@
  * Testing Plan: 
  * - The user has to input a value between 1 and 10,000. When -1 is entered, the program stops.
  * - The program will stop if a negative value or zero is entered as well.
+ * - 20: 20, 10, 5, 16, 8, 4, 2, 1
+ * - 30: 30, 15, 46, 23, 70, 35, 106, 53, 160, 80,40, 20, 10, 5, 16, 8, 4, 2, 1
  */
 
 import java.util.Scanner; // Import the Scanner class
