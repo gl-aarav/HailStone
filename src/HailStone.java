@@ -163,7 +163,7 @@ public class HailStone
         // Handle invalid input (out of range or incorrect value)
         else
         {
-            System.out.println("Enter a value within the range, please!"); // Error message for invalid input
+            System.out.println("Enter a value within the range, please!\n\n\n"); // Error message for invalid input
         }
     }
 }
