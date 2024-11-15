@@ -87,7 +87,6 @@ public class HailStone
 			// Handle invalid input (negative or zero)
 			else
 			{
-				printInOneLine = -100; // Set printInOneLine to an invalid value to handle errors
 				print(); // Print an error message
 			}
 
